@@ -19,7 +19,7 @@ def contactId(fullName):
 
 
 def searchContacts(text):
-    found=[]
+    found = []
     for name, info in contacts.items():
         if text.lower() in name.lower() or text in info["phone"]:
             found.append(name)
@@ -40,7 +40,6 @@ def contactsByCity():
     for name, info in contacts.items():
         grouped.setdefault(info["city"], []).append(name)
     return grouped
-
 
 
 def printDirectory():
@@ -80,8 +79,9 @@ def main():
     exportCsv()
     backupBook()
     restored = restoreBook()
-    print("Contacts restored:", len(restored), "| first:",sorted(restored)[0])
-    print("Restored contacts match the in-memory address book:", restored == contacts)
+    print("Contacts restored:", len(restored), "| first:", sorted(restored)[0])
+    print("Restored contacts match the in-memory address book:",
+          restored == contacts)
 
 
 main()
